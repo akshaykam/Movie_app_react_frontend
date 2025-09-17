@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movie-frontend
+  template:
+    metadata:
+      labels:
+        app: movie-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: 543816070942.dkr.ecr.ap-south-1.amazonaws.com/movieapp-frontend  # Updated by workflow
+        ports:
+        - containerPort: 80
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://movie-backend-service.default.svc.cluster.local/api"  # Internal backend URL
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: movie-frontend-service
+spec:
+  type: LoadBalancer  # Exposes frontend publicly
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: movie-frontend
