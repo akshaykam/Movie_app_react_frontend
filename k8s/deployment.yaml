@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 543816070942.dkr.ecr.ap-south-1.amazonaws.com/movieapp-frontend:latest  # Updated by workflow
+        image: 543816070942.dkr.ecr.us-east-1.amazonaws.com/movieapp-frontend:latest  # Updated by workflow
         ports:
         - containerPort: 80
         env:
