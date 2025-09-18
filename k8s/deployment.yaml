@@ -16,7 +16,7 @@ spec:
       - name: frontend
         image: 543816070942.dkr.ecr.us-east-1.amazonaws.com/movieapp-frontend:latest  # Updated by workflow
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         env:
         - name: REACT_APP_API_URL
           value: "http://movie-backend-service.default.svc.cluster.local:80/api"  # Internal backend URL
