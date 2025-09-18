@@ -9,7 +9,7 @@ env:
   ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
   ECR_REPOSITORY: ${{ secrets.ECR_FRONTEND_REPOSITORY }}
   IMAGE_TAG: ${{ github.sha }}
-  REACT_APP_API_URL: http://movie-backend-service:8000
+  REACT_APP_API_URL: http://movie-backend-service:80
 
 
 jobs:
