@@ -36,6 +36,6 @@ spec:
   type: LoadBalancer  # Exposes frontend publicly
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 80
   selector:
     app: movie-frontend
